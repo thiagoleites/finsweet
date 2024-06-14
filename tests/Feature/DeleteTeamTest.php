@@ -1,7 +1,6 @@
 <?php
 
-use App\Models\Team;
-use App\Models\User;
+use App\Models\{Team, User};
 use Laravel\Jetstream\Http\Livewire\DeleteTeamForm;
 use Livewire\Livewire;
 
@@ -13,7 +12,8 @@ test('teams can be deleted', function () {
     ]));
 
     $team->users()->attach(
-        $otherUser = User::factory()->create(), ['role' => 'test-role']
+        $otherUser = User::factory()->create(),
+        ['role' => 'test-role']
     );
 
     Livewire::test(DeleteTeamForm::class, ['team' => $team->fresh()])

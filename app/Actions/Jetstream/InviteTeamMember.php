@@ -2,13 +2,10 @@
 
 namespace App\Actions\Jetstream;
 
-use App\Models\Team;
-use App\Models\User;
+use App\Models\{Team, User};
 use Closure;
 use Illuminate\Database\Query\Builder;
-use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\{Gate, Mail, Validator};
 use Illuminate\Validation\Rule;
 use Laravel\Jetstream\Contracts\InvitesTeamMembers;
 use Laravel\Jetstream\Events\InvitingTeamMember;
@@ -31,7 +28,7 @@ class InviteTeamMember implements InvitesTeamMembers
 
         $invitation = $team->teamInvitations()->create([
             'email' => $email,
-            'role' => $role,
+            'role'  => $role,
         ]);
 
         Mail::to($email)->send(new TeamInvitation($invitation));
@@ -44,7 +41,7 @@ class InviteTeamMember implements InvitesTeamMembers
     {
         Validator::make([
             'email' => $email,
-            'role' => $role,
+            'role'  => $role,
         ], $this->rules($team), [
             'email.unique' => __('This user has already been invited to the team.'),
         ])->after(
@@ -67,7 +64,7 @@ class InviteTeamMember implements InvitesTeamMembers
                 }),
             ],
             'role' => Jetstream::hasRoles()
-                            ? ['required', 'string', new Role]
+                            ? ['required', 'string', new Role()]
                             : null,
         ]);
     }
