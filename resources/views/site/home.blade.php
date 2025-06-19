@@ -2,7 +2,7 @@
 
     <section class="container mx-auto py-8">
         {{-- <x-form.button>Botao</x-form.button> --}}
-        <x-form.input
+        {{-- <x-form.input
             label="Nome"
             name="name"
             placeholder="Digite seu nome"
@@ -14,7 +14,7 @@
     name="country" 
     :options="['br' => 'Brasil', 'us' => 'Estados Unidos']" 
     placeholder="Selecione seu país" 
-/>
+/> --}}
             <div class="flex gap-8 justify-evenly">
                 @for($i = 0; $i < 4; $i++)
                     <x-cards.author
