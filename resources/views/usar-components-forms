@@ -1,0 +1,47 @@
+<!-- Input -->
+<x-form.input 
+    label="Nome" 
+    name="name" 
+    placeholder="Digite seu nome" 
+    :value="old('name')" 
+    required 
+/>
+
+<!-- Textarea -->
+<x-form.textarea 
+    label="Mensagem" 
+    name="message" 
+    placeholder="Digite sua mensagem" 
+    rows="5" 
+/>
+
+<!-- Select -->
+<x-form.select 
+    label="País" 
+    name="country" 
+    :options="['br' => 'Brasil', 'us' => 'Estados Unidos']" 
+    placeholder="Selecione seu país" 
+/>
+
+<!-- Checkbox -->
+<x-form.checkbox 
+    label="Aceito os termos" 
+    name="terms" 
+/>
+
+<!-- Radio -->
+<x-form.radio 
+    label="Masculino" 
+    name="gender" 
+    value="male" 
+/>
+
+<!-- Button -->
+<x-form.button type="submit" variant="primary">
+    Enviar
+</x-form.button>
+
+<!-- Form Group -->
+<x-form.form-group title="Informações Pessoais" description="Preencha seus dados">
+    <!-- Componentes de formulário aqui -->
+</x-form.form-group>
